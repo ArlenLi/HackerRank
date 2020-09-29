@@ -1,3 +1,5 @@
+import java.util.Random;
+
 public class QuickSort {
     public static int[] quickSort(int[] arr){
         quickSortAlgo(0, arr.length - 1, arr);
@@ -15,6 +17,9 @@ public class QuickSort {
     public static int partition(int low, int high, int[] arr){
         int pivotIndex = -1;
         if(low < high){
+            Random random = new Random();
+            int randomIndex = random.nextInt(high + 1 - low) + low;
+            swap(low, randomIndex, arr);
             int pivot = arr[low];
             pivotIndex = low + 1;
             for(int k = low + 1; k <= high; k++){
