@@ -9,14 +9,14 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class StackOfBoxTest {
     @Test
     public void calculateHighestStack_WhenInputIsEmpty_ReturnZero(){
-        int actual = StackOfBoxes.calculateHighestStack(new ArrayList<>());
+        int actual = StackOfBoxes.calculateHighestStack(new ArrayList<Box>());
 
         assertThat(actual).isEqualTo(0);
     }
 
     @Test
     public void calculateHighestStack_WhenInputIsNotEmpty_ReturnCorrectHighest(){
-        List<Box> boxes = new ArrayList<>(
+        List<Box> boxes = new ArrayList<Box>(
             Arrays.asList(
                 new Box(2, 4, 5),
                 new Box(6, 1, 3),
