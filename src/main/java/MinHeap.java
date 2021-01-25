@@ -55,7 +55,7 @@ public class MinHeap {
                 break;
             }
         }
-        if(i != size) {
+        if(i < size) {
             arr[i] = arr[size--];
 
             if (arr[i] < arr[parent(i)]) {
@@ -63,13 +63,15 @@ public class MinHeap {
             } else {
                 downwardHeapify(i);
             }
-        } else{
+        } else if (i == size){
             size--;
+        } else{
+            throw new IllegalStateException("Element is not found in the heap");
         }
     }
 
     private void downwardHeapify(int index){
-        if(isLeaf(index)){
+        if(index > size || isLeaf(index)){
             return;
         }
 
@@ -88,11 +90,7 @@ public class MinHeap {
     }
 
     private boolean isLeaf(int index){
-        if(index <= size && index > size / 2){
-            return true;
-        }else{
-            return false;
-        }
+        return index > size / 2;
     }
 
     private void upwardsHeapify(int index){
